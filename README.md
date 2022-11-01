@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://www.frontendmentor.io/solutions/article-preview-component-html-css-javascript-Rthw_Yuaiq
 - Live Site URL: https://article-preview-component-rafael.netlify.app
 
 ## My process
