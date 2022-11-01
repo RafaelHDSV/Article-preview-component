@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rafael Henrique de Sousa Vieira">
+  <meta name="keywords"
+    content="programação, html, css, frontend mentor, Article preview component, Rafael Henrique de Sousa Vieira, Frontend, Front, end">
+  <meta name="robots" content="index, follow">
+  <meta name="description"
+    content="Practice your layout skills with this article preview component. There's lots of fun to be had playing around with animations for the sharing icons as well.">
+  <link rel="icon" type="image.png" sizes="32x32" href="images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <style>
+    :root {
+      --very_dark_frayish_blue: hsl(217, 19%, 35%);
+      --desaturated_dark_blue: hsl(214, 17%, 51%);
+      --grayish_blue: hsl(212, 23%, 69%);
+      --light_grayish_blue: hsl(210, 46%, 95%);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+    /* font-family: 'Manrope', sans-serif; */
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 100%;
+      min-height: 100vh;
+      background-color: var(--light_grayish_blue);
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      height: 20rem;
+      width: 50rem;
+      border-radius: 1rem;
+      position: relative;
+    }
+
+    .image {
+      display: flex;
+      height: 100%;
+    }
+
+    .image img {
+      max-width: 20rem;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem 0 0 1rem;
+      object-fit: cover;
+      object-position: left;
+    }
+
+    .name img {
+      max-width: 3rem;
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 30rem;
+      width: 100%;
+      padding: 0 0 0 2.5rem;
+      gap: 2rem;
+    }
+
+    .text h2 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 21px;
+      color: var(--very_dark_frayish_blue);
+      max-width: 23rem;
+      width: 100%;
+    }
+
+    .text p {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5rem;
+      color: var(--desaturated_dark_blue);
+      max-width: 23rem;
+      width: 100%;
+    }
+
+    .name_share {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 23rem;
+      width: 100%;
+    }
+
+    .name {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .text_name p:nth-child(1) {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--very_dark_frayish_blue);
+    }
+
+    .text_name p:nth-child(2) {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5rem;
+      color: var(--grayish_blue);
+
+    }
+
+    .share_content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      background-color: var(--very_dark_frayish_blue);
+      border-radius: .5rem;
+      max-width: 15rem;
+      width: 100%;
+      height: 3.5rem;
+      bottom: 6rem;
+      right: -1.8rem;
+      gap: 1rem;
+    }
+
+    .share_content::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: var(--very_dark_frayish_blue);
+      position: absolute;
+      bottom: -.5rem;
+      transform: rotate(45deg);
+    }
+
+    .share_content p {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: .3rem;
+      text-transform: uppercase;
+      color: var(--grayish_blue);
+      max-width: 4.5rem;
+      width: 100%;
+    }
+
+    .hide {
+      display: none;
+      opacity: 0;
+    }
+
+    #share_logo {
+      background-color: var(--light_grayish_blue);
+      border-radius: 50%;
+      padding: .7rem;
+      cursor: pointer;
+    }
+
+    .attribution {
+      position: absolute;
+      bottom: 0;
+      padding: 1rem 0;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="image">
+      <img src="images/drawers.jpg" alt="drawers.jpg">
+    </div>
+
+    <div class="text">
+      <h2>Shift the overall look and feel by adding these wonderful
+        touches to furniture in your home</h2>
+      <p>Ever been in a room and felt like something was missing? Perhaps
+        it felt slightly bare and uninviting. I've got some simple tips
+        to help you make any room feel complete.</p>
+
+      <div class="name_share">
+        <div class="name">
+          <img src="images/avatar-michelle.jpg" alt="avatar-michelle.jpg">
+
+          <div class="text_name">
+            <p>Michelle Appleton</p>
+            <p>28 Jun 2020</p>
+          </div>
+        </div>
+
+        <div class="share_content hide">
+          <p>Share</p>
+          <img src="images/icon-facebook.svg" alt="icon-facebook.svg">
+          <img src="images/icon-twitter.svg" alt="icon-twitter.svg">
+          <img src="images/icon-pinterest.svg" alt="icon-pinterest.svg">
+        </div>
+
+        <img id="share_logo" src="images/icon-share.svg" alt="icon-share.svg">
+      </div>
+    </div>
+  </main>
+
+  <footer class=" attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p>
+    <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank">Rafael Henrique de Sousa Vieira</a>.</p>
+  </footer>
+
+  <script>
+    let shareLogo = document.getElementById('share_logo')
+    let shareContent = document.querySelector('.share_content')
+
+    shareLogo.addEventListener('click', () => {
+      if (shareContent.classList.contains('hide')) {
+        shareContent.classList.remove('hide')
+        shareLogo.style.backgroundColor = 'var(--desaturated_dark_blue)'
+      } else {
+        shareContent.classList.add('hide')
+        shareLogo.style.backgroundColor = 'var(--light_grayish_blue)'
+        shareLogo.style.fill = 'red'
+      }
+    })
+  </script>
+</body>
+
+</html>
